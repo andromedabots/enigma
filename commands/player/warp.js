@@ -4,8 +4,8 @@ module.exports.run = async (client, message, args) => {
 
     if(!args[0]) return message.channel.send("You must choose a location to warp to!")
 
-    let locdata = re.l[args[0]]
-    let clocdata = re.l[message.author.euser.location]
+    let locdata = await re.db.emap.findOne({system: args[0]}).exec()
+    let clocdata = await re.db.emap.findOne({system: message.author.euser.location}).exec()
     if(!locdata) return message.channel.send("Invalid location")
     if(!clocdata.warpTo.includes(args[0])) return message.channel.send("You can't warp there right now!")
 
