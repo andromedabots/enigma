@@ -15,9 +15,12 @@ const vars = merge(localvars, globalvars)
 
 
 const fn = require("../global/fn.js")
-const locations = require("./locations.js")
+// const locations = require("./locations.js")
+const locations = db.emap
 
 const prefix = config.prefix
+
+
 
 exports.data = {
   vars,
