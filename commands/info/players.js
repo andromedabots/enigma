@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
     name:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
     description:`List the players in your current location`,
     syntax:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
-    alias:[""],
+    alias:[],
     module:`${__dirname.split(`/`).pop()}`,
     access: {level: 0, mm: null}
   }
