@@ -6,10 +6,12 @@ module.exports.run = async (client, message, args) => {
 
     let files = await re.vars.fs.readdirSync("/home/andromeda/enigma/maps");
     let file = args[0] + ".jpg"
-    let names = []
-    files.forEach(x => names.push(x.replace(".jpg", "")))
-    //files.forEach(x => names.push(re.fn.capitalizeFirstLetter(x.replace(".jpg", ""))))
-    if(!files.includes(file)) return message.channel.send("Location not found! Valid locations are " + names.join(", "))
+    let names = [], prettynames = []
+    files.forEach(x => {
+      names.push(x.replace(".jpg", ""))
+      prettynames.push(re.fn.capitalizeFirstLetter(x.replace(".jpg", "")))
+    })
+    if(!files.includes(file)) return message.channel.send("Location not found! Valid locations are " + prettynames.join(", "))
 
     message.channel.send('', {
       embed: {
