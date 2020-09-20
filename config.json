@@ -1,0 +1,5 @@
+{
+  "prefix" : "*",
+  "color": "#6F03C7",
+  "modules": ["info", "player"]
+}

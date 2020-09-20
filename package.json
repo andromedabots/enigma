@@ -1,0 +1,24 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "Starter bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "array-pull": "^0.2.1",
+    "deepmerge": "^4.2.2",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "moment": "^2.27.0",
+    "ms": "^2.1.2",
+    "node-cmd": "^3.0.0",
+    "shortid": "^2.2.15",
+    "sqlite3": "^4.2.0",
+    "unb-api": "^1.1.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
