@@ -4,10 +4,10 @@ module.exports.run = async (client, message, args) => {
 
     if(!args[0]) return message.channel.send("You must choose a location to warp to!")
 
-    let locdata = await re.db.emap.findOne({system: args[0]}).exec()
+    let locdata = await re.db.emap.findOne({system: args[0].toLowerCase()}).exec()
     let clocdata = await re.db.emap.findOne({system: message.author.euser.location}).exec()
     if(!locdata) return message.channel.send("Invalid location")
-    if(!clocdata.warpTo.includes(args[0])) return message.channel.send("You can't warp there right now!")
+    if(!clocdata.warpTo.includes(args[0].toLowerCase())) return message.channel.send("You can't warp there right now!")
 
     
     
@@ -27,6 +27,8 @@ module.exports.run = async (client, message, args) => {
        }]
     })
 
+    await re.db.eusers.findOneAndUpdate({user: message.author.id}, {travel: true}).exec()
+
     await re.fn.sleep(10000)
 
     await m.delete()
@@ -39,7 +41,7 @@ module.exports.run = async (client, message, args) => {
         }
     })
 
-    await re.db.eusers.findOneAndUpdate({user: message.author.id}, {location: args[0]}).exec()
+    await re.db.eusers.findOneAndUpdate({user: message.author.id}, {location: args[0], travel: false}).exec()
     
 
 };

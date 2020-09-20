@@ -1,8 +1,8 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
-    locations = await re.db.emap.find().exec()
-    console.log(locations)
-    let l = message.author.euser.location, xl = locations[l].structures, embeds = [new re.Discord.MessageEmbed().setDescription("No structures found!")]
+    let allloc = await re.db.emap.find().exec()
+    console.log(allloc)
+    let l = message.author.euser.location, xl = allloc[l].structures, embeds = [new re.Discord.MessageEmbed().setDescription("No structures found!")]
 
     for (var [i, x] of xl.entries()) {
       if (i % 10 == 0 && !i == 0) embeds.push(new re.Discord.MessageEmbed().setDescription(""))

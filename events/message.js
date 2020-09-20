@@ -32,6 +32,7 @@ re.client.on("message", async message => {
     if(!euser && message.content.startsWith(prefix)) noe = true
     if(noe && message.content.startsWith(prefix) && !["ping", "help", "new", "eval"].includes(command)) return message.channel.send("You haven't yet joined the Enigma!")
     if(noe && !["ping", "help", "new", "eval"].includes(command)) return
+    if(euser && euser.travel == true) return message.channel.send("You are currently traveling and unable to use any commands!")
 
     message.author.euser = euser
 

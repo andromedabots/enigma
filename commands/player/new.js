@@ -4,10 +4,10 @@ module.exports.run = async (client, message, args) => {
     let euser = await re.db.eusers.findOne({ user: message.author.id }).exec()
     if(euser) return message.channel.send("You're already in the Enigma!")
 
-    
-    let voul = Object.keys(Object.filter(re.l, x => x.map == "voulat"))
-    let loc = re.fn.getRandom(0, voul.length)
+    // let voul = Object.keys(Object.filter(re.l, x => x.map == "voulat"))
+    // let loc = re.fn.getRandom(0, voul.length)
 
+    voul = ["nexus"], loc = 0
 
     euser = {
       user: message.author.id,
