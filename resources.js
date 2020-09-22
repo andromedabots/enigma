@@ -20,6 +20,16 @@ const locations = db.emap
 
 const prefix = config.prefix
 
+vars.botperms = {
+  0: "Basic User",
+  1: "Server Staff Member",
+  2: "Server Moderator",
+  3: "Server Administrator",
+  4: "Bot Administrator",
+  5: "Global Administrator",
+  6: "Bot Owner"
+}
+
 
 
 exports.data = {

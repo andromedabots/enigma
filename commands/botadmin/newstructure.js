@@ -1,10 +1,11 @@
 const re = require(`../../resources.js`).data
 module.exports.run = async (client, message, args) => {
-	return message.channel.send(
-		`\`\`\`js\n*eval re.db.emap({\n  system: "",\n  map: "",\n  structures: [],\n  warpTo: [],\n  travelTo: []\n}).save()\`\`\`\nFill out this command and sent it to add a system!\nItems in \`[]\` should be listed like this: \`["item1", "item2", "item3"]\`\ntravelTo is for locations you can jump to, warpTo is for locations you can warp to.\nStructures should only use any of the following:\n\`\`\`js\n["station", "star", "faction_empire", "delta_forge", "citadel", "anomaly", "trading_station", "planet", "colosseum", "black_market", "auction_house", "government", "arcade", "pub", "dock", "diplomacy_hub", "archive", "pulse", "paragon", "ruin", "asteroid", "temple", "quantum_forge", "university", "hostile_wreck"]\`\`\`.`
-	)
+	// return message.channel.send(
+	// 	`\`\`\`js\n*eval re.db.structure({\n  system: "",\n  map: "",\n  structures: [],\n  warpTo: [],\n  travelTo: []\n}).save()\`\`\`\nFill out this command and sent it to add a system!\nItems in \`[]\` should be listed like this: \`["item1", "item2", "item3"]\`\ntravelTo is for locations you can jump to, warpTo is for locations you can warp to.\nStructures should only use any of the following:\n\`\`\`js\n["station", "star", "faction_empire", "delta_forge", "citadel", "anomaly", "trading_station", "planet", "colosseum", "black_market", "auction_house", "government", "arcade", "pub", "dock", "diplomacy_hub", "archive", "pulse", "paragon", "ruin", "asteroid", "temple", "quantum_forge", "university", "hostile_wreck"]\`\`\`.`
+	// )
+	return
 
-	let item = {
+	let structure = {
 		system: "",
 		map: "",
 		structures: [],
@@ -86,7 +87,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
 	name: `${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
-	description: "Add a system to the Enigma database",
+	description: "Add a structure to the Enigma database",
 	syntax:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()} <user> <balance>`,
 	alias: [],
 	module: `${__dirname.split(`/`).pop()}`,
