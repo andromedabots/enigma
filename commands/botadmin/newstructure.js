@@ -36,9 +36,9 @@ module.exports.run = async (client, message, args) => {
 			.catch(() => {})
 		if (!input) return await m.edit("Prompt timed out.")
 		input = input.first().content
-		let scheck = await re.db.estructures.findOne({ structure: input }).exec()
+		let scheck = await re.db.emap.findOne({ system: input }).exec()
 		if (!scheck) {
-			m.edit("Structure not found! Please try again")
+			m.edit("System not found! Please try again")
 		} else {
 			structure.system = input
 		}
