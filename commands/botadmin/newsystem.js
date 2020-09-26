@@ -22,14 +22,14 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await m.edit("Prompt timed out.")
+	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	item.name = input
 
 	item.id = item.name.toLowerCase().replace(/[^a-z0-9\_\-]/g, "")
 
 	// m = await message.channel.send("How much should this item cost?")
-	await m.edit("What map is this system in?")
+	await message.channel.send("What map is this system in?")
 	input = await m.channel
 		.awaitMessages((msg) => msg.author.id == message.author.id, {
 			time: 30 * 1000,
@@ -37,12 +37,12 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await m.edit("Prompt timed out.")
+	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	item.price = parseInt(input, 10)
 
 	// m = await message.channel.send("How much should this item damage?")
-	await m.edit("How much should this item damage?")
+	await message.channel.send("How much should this item damage?")
 	input = await m.channel
 		.awaitMessages((msg) => msg.author.id == message.author.id, {
 			time: 30 * 1000,
@@ -50,12 +50,12 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await m.edit("Prompt timed out.")
+	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	item.damage = parseInt(input, 10)
 
 	// m = await message.channel.send("How much should this item heal?")
-	await m.edit("How much should this item heal?")
+	await message.channel.send("How much should this item heal?")
 	input = await m.channel
 		.awaitMessages((msg) => msg.author.id == message.author.id, {
 			time: 30 * 1000,
@@ -63,12 +63,12 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await m.edit("Prompt timed out.")
+	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	item.heal = parseInt(input, 10)
 
 	// m = await message.channel.send("How much health should this item add?")
-	await m.edit("How much health should this item add?")
+	await message.channel.send("How much health should this item add?")
 	input = await m.channel
 		.awaitMessages((msg) => msg.author.id == message.author.id, {
 			time: 30 * 1000,
@@ -76,7 +76,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await m.edit("Prompt timed out.")
+	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	item.addhealth = parseInt(input, 10)
 

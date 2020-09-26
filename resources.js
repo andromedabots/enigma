@@ -21,13 +21,69 @@ const locations = db.emap
 const prefix = config.prefix
 
 vars.botperms = {
-  0: "Basic User",
-  1: "Server Staff Member",
-  2: "Server Moderator",
-  3: "Server Administrator",
-  4: "Bot Administrator",
-  5: "Global Administrator",
+  0: "Non-Player",
+  1: "Enigma Player",
+  2: "Server Admin",
+  3: "OAEEO Member",
+  4: "Developer",
+  5: "Enigma Team",
   6: "Bot Owner"
+}
+
+fn.botperms = async function (userid, message) {
+  if (userid instanceof message.re.Discord.GuildMember) userid = userid.id;
+  if (userid instanceof message.re.Discord.User) userid = userid.id;
+  let perms = {
+    level: 0,
+    mm: [],
+    eval: false,
+    bot: false,
+  };
+  let permmem = message.guild
+    ? message.guild.members.cache.get(userid)
+    : message.client.users.cache.get(userid);
+  let scon = await message.re.db.config
+    .findOne({ server: message.guild.id })
+    .exec();
+  if (message.guild) {
+    if (permmem.hasPermission("MANAGE_GUILD"))
+      perms.level = 2;
+  }
+  if (
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid) &&
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid)
+      .roles.cache.has(message.re.config.barole)
+  )
+    perms.level = 4;
+  if (
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid) &&
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid)
+      .roles.cache.has(message.re.config.devrole)
+  )
+    perms.level = 5;
+  if (userid === message.re.config.ownerID) {
+    perms.level = 6;
+    perms.mm = message.re.vars.allmodules;
+    perms.eval = true;
+  }
+  if (["380455396281810955", "661946737065197586"].includes(message.author.id))
+    perms.eval = true;
+  if (permmem.user.bot)
+    perms = {
+      level: 0,
+      modules: [],
+      eval: false,
+      bot: true,
+    };
+  return perms;
 }
 
 

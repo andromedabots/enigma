@@ -10,91 +10,89 @@ module.exports.run = async (client, message, args) => {
 	let m = await message.channel.send(
 		"Yay its time to make a new structure! What do you want to call this structure?"
 	)
-	while (!structure.name) {
-		let input = await m.channel
-			.awaitMessages((msg) => msg.author.id == message.author.id, {
-				time: 30 * 1000,
-				max: 1,
-				errors: ["time"],
-			})
-			.catch(() => {})
-		if (!input) return await m.edit("Prompt timed out.")
-		input = input.first().content
-		structure.name = input
-	}
+
+	let input = await m.channel
+		.awaitMessages((msg) => msg.author.id == message.author.id, {
+			time: 30 * 1000,
+			max: 1,
+			errors: ["time"],
+		})
+		.catch(() => {})
+	if (!input) return await message.channel.send("Prompt timed out.")
+	input = input.first().content
+	structure.name = input
 
 	structure.id = structure.name.toLowerCase().replace(/[^a-z0-9\_\-]/g, "")
 
-	while (!structure.system) {
-		await m.edit("What system is this structure in?")
-		input = await m.channel
-			.awaitMessages((msg) => msg.author.id == message.author.id, {
-				time: 30 * 1000,
-				max: 1,
-				errors: ["time"],
-			})
-			.catch(() => {})
-		if (!input) return await m.edit("Prompt timed out.")
-		input = input.first().content
-		let scheck = await re.db.emap.findOne({ system: input }).exec()
-		if (!scheck) {
-			m.edit("System not found! Please try again")
-		} else {
-			structure.system = input
-		}
-	}
+	await message.channel.send("What system is this structure in?")
 
-	while (!structure.type) {
-		await m.edit("What type of structure is this?")
-		input = await m.channel
-			.awaitMessages((msg) => msg.author.id == message.author.id, {
-				time: 30 * 1000,
-				max: 1,
-				errors: ["time"],
-			})
-			.catch(() => {})
-		if (!input) return await m.edit("Prompt timed out.")
-		input = input.first().content
-		if (
-			![
-				"station",
-				"star",
-				"faction_empire",
-				"delta_forge",
-				"citadel",
-				"anomaly",
-				"trading_station",
-				"planet",
-				"colosseum",
-				"black_market",
-				"auction_house",
-				"government",
-				"arcade",
-				"pub",
-				"dock",
-				"diplomacy_hub",
-				"archive",
-				"pulse",
-				"paragon",
-				"ruin",
-				"asteroid",
-				"temple",
-				"quantum_forge",
-				"university",
-				"hostile_wreck",
-			].includes(input)
-		) {
-			return m.edit("That is an invalid type, please try again!")
-		} else {
-			structure.type = input
-		}
-	}
-	let system = await re.db.emap.findOne({ system: input }).exec()
-	system.structures.push(structure.id)
-	system.save()
+	input = await m.channel
+		.awaitMessages((msg) => msg.author.id == message.author.id, {
+			time: 30 * 1000,
+			max: 1,
+			errors: ["time"],
+		})
+		.catch(() => {})
+	if (!input) return await message.channel.send("Prompt timed out.")
+	input = input.first().content
+	let scheck = await re.db.emap.findOne({ system: input }).exec()
+	re.fn.jsm(message, scheck)
+
+	if (!scheck)
+		return await message.channel.send("System not found! Please try again")
+
+	structure.system = input
+
+	await message.channel.send("What type of structure is this?")
+	input = await m.channel
+		.awaitMessages((msg) => msg.author.id == message.author.id, {
+			time: 30 * 1000,
+			max: 1,
+			errors: ["time"],
+		})
+		.catch(() => {})
+	if (!input) return await message.channel.send("Prompt timed out.")
+	input = input.first().content
+	if (
+		![
+			"station",
+			"star",
+			"faction_empire",
+			"delta_forge",
+			"citadel",
+			"anomaly",
+			"trading_station",
+			"planet",
+			"colosseum",
+			"black_market",
+			"auction_house",
+			"government",
+			"arcade",
+			"pub",
+			"dock",
+			"diplomacy_hub",
+			"archive",
+			"pulse",
+			"paragon",
+			"ruin",
+			"asteroid",
+			"temple",
+			"quantum_forge",
+			"university",
+			"hostile_wreck",
+		].includes(input)
+	)
+		return message.channel.send("That is an invalid type, please try again!")
+
+	structure.type = input
+
+	let scheck = await re.db.emap.findOne({ system: input }).exec()
+	if (!scheck) return await message.channel.send("No scheck")
+	scheck.structures.push(structure.id)
+	scheck.save()
 	await re.db.estructure(structure).save()
-	
-	m.edit("Success!")
+
+	message.channel.send("Success!")
 }
 
 module.exports.help = {
