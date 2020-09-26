@@ -1,33 +1,52 @@
 module.exports.run = async (client, message, args) => {
-    const re = message.re
-    
-    let euser = await re.db.eusers.findOne({ user: message.author.id }).exec()
-    if(euser) return message.channel.send("You're already in the Enigma!")
+	const re = message.re
 
-    // let voul = Object.keys(Object.filter(re.l, x => x.map == "voulat"))
-    // let loc = re.fn.getRandom(0, voul.length)
+	let euser = await re.db.eusers.findOne({ user: message.author.id }).exec()
+	if (euser) return message.channel.send("You're already in the Enigma!")
 
-    voul = ["nexus"], loc = 0
+	// let voul = Object.keys(Object.filter(re.l, x => x.map == "voulat"))
+	// let loc = re.fn.getRandom(0, voul.length)
 
-    euser = {
-      user: message.author.id,
-      location: voul[loc]
-    }
-    await re.db.eusers(euser).save()
+	voul = [
+		"veilan",
+		"imia",
+		"kenox",
+		"whuv",
+		"deia",
+		"zyrneus",
+		"remsea",
+		"valquin",
+		"nexus",
+		"sennar",
+		"iantus",
+		"talmdai",
+		"dikarva",
+		"jynadi",
+		"lahilkeil",
+	]
+	let loc = re.fn.getRandom(0, voul.length)
 
-    message.react("✅")
-    message.channel.send(euser)
-    console.log(euser)
+	euser = {
+		user: message.author.id,
+		location: voul[loc],
+	}
+	await re.db.eusers(euser).save()
 
+	message.channel.send(
+		new re.Discord.MessageEmbed()
+			.setTitle("Welcome to the Enigma!")
+			.setDescription("Fun message here!")
+			.setColor(re.config.color)
+			.setFooter(`You are now in ${euser.location} as of`)
+			.setTimestamp()
+	)
+}
 
-};
-  
-  module.exports.help = {
-    name:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
-    description:`Join the Enigma`,
-    syntax:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
-    alias:["initalize", "join"],
-    module:`${__dirname.split(`/`).pop()}`,
-    access: {level: 0, mm: null}
-  }
-  
+module.exports.help = {
+	name: `${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
+	description: `Join the Enigma`,
+	syntax: `${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
+	alias: ["initalize", "join"],
+	module: `${__dirname.split(`/`).pop()}`,
+	access: { level: 0, mm: null },
+}
