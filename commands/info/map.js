@@ -1,8 +1,7 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
-    let args2 = args.join(" ")
+    let args2 = args.join(" ").toLowerCase()
     if(!args2) args2 === message.author.euser.location
-    console.log(args2)
 
     let files = await re.vars.fs.readdirSync("/home/andromeda/enigma/maps");
     let file = args[0] + ".jpg"
