@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await message.author.send(m.edit("Prompt timed out."))
+	if (!input) return await m.edit("Prompt timed out.")
 	input = input.first().content
 	item.name = input
 
@@ -37,7 +37,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await message.author.send(m.edit("Prompt timed out."))
+	if (!input) return await m.edit("Prompt timed out.")
 	input = input.first().content
 	item.price = parseInt(input, 10)
 
@@ -50,7 +50,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await message.author.send(m.edit("Prompt timed out."))
+	if (!input) return await m.edit("Prompt timed out.")
 	input = input.first().content
 	item.damage = parseInt(input, 10)
 
@@ -63,7 +63,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await message.author.send(m.edit("Prompt timed out."))
+	if (!input) return await m.edit("Prompt timed out.")
 	input = input.first().content
 	item.heal = parseInt(input, 10)
 
@@ -76,7 +76,7 @@ module.exports.run = async (client, message, args) => {
 			errors: ["time"],
 		})
 		.catch(() => {})
-	if (!input) return await message.author.send(m.edit("Prompt timed out."))
+	if (!input) return await m.edit("Prompt timed out.")
 	input = input.first().content
 	item.addhealth = parseInt(input, 10)
 
