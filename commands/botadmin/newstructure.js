@@ -89,7 +89,11 @@ module.exports.run = async (client, message, args) => {
 			structure.type = input
 		}
 	}
-	await re.db.structures(structure).save()
+	let system = await re.db.emap.findOne({ system: input }).exec()
+	system.structures.push(structure.id)
+	system.save()
+	await re.db.estructure(structure).save()
+	
 	m.edit("Success!")
 }
 
