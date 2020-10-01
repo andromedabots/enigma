@@ -1,7 +1,9 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
     
-    message.channel.send(`You currently have ${message.author.euser.balance} EC.`)
+    message.channel.send(new re.Discord.MessageEmbed().setColor(re.config.color).setDescription(`You currently have ${message.author.euser.balance} EC`))
+
+    //message.channel.send(`You currently have ${message.author.euser.balance} EC.`)
 
 
 };

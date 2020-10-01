@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
       if (i % 10 == 0 && !i == 0) embeds.push(new re.Discord.MessageEmbed().setDescription(""))
       let structure = await re.db.estructure.findOne({id: x}).exec()
       //embeds[embeds.length - 1].description += `<@${x}> - ${re.client.users.cache.get(x) ? re.client.users.cache.get(x).username : "Unknown User"}\n`
-      embeds[embeds.length - 1].description += `${structure.name} - ${structure.type}\n`
+      embeds[embeds.length - 1].description += `${i}${structure.name} - ${structure.type}\n`
     }
 
     for (var [i, embed] of embeds.entries()) {
