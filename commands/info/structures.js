@@ -5,13 +5,13 @@ module.exports.run = async (client, message, args) => {
     let xll = await re.db.emap.findOne({system: l}).exec()
     let xl = xll.structures
     console.log(xl)
-    let embeds = [new re.Discord.MessageEmbed().setDescription("")]
+    let embeds = [new re.Discord.MessageEmbed().setDescription("** **\n")]
 
     for (var [i, x] of xl.entries()) {
-      if (i % 10 == 0 && !i == 0) embeds.push(new re.Discord.MessageEmbed().setDescription(""))
+      if (i % 10 == 0 && !i == 0) embeds.push(new re.Discord.MessageEmbed().setDescription("** **\n"))
       let structure = await re.db.estructure.findOne({id: x}).exec()
       //embeds[embeds.length - 1].description += `<@${x}> - ${re.client.users.cache.get(x) ? re.client.users.cache.get(x).username : "Unknown User"}\n`
-      embeds[embeds.length - 1].description += `${i}${structure.name} - ${structure.type}\n`
+      embeds[embeds.length - 1].description += `**${structure.name} | ${re.func.capitalizeFirstLetter(structure.type)}**\n`
     }
 
     for (var [i, embed] of embeds.entries()) {
@@ -20,6 +20,7 @@ module.exports.run = async (client, message, args) => {
         .setColor(re.config.color)
         .setFooter(`Page ${i + 1}/${embeds.length} | Information accurate as of`)
         .setTimestamp()
+      embed.description += "\n\n\n** **"
     }
 
     let m = await message.channel.send(embeds[0])
