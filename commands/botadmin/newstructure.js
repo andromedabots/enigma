@@ -86,7 +86,7 @@ module.exports.run = async (client, message, args) => {
 
 	structure.type = input
 
-	let scheck = await re.db.emap.findOne({ system: input }).exec()
+	scheck = await re.db.emap.findOne({ system: structure.system }).exec()
 	if (!scheck) return await message.channel.send("No scheck")
 	scheck.structures.push(structure.id)
 	scheck.save()
