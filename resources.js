@@ -21,11 +21,11 @@ const locations = db.emap
 const prefix = config.prefix
 
 vars.botperms = {
-  0: "Non-Player",
-  1: "Enigma Player",
+  0: "Player",
+  1: "Enigma Premium",
   2: "Server Admin",
-  3: "OAEEO Member",
-  4: "Developer",
+  3: "Enigma Staff",
+  4: "OAEEO Member",
   5: "Enigma Team",
   6: "Bot Owner"
 }
@@ -45,6 +45,16 @@ fn.botperms = async function (userid, message) {
   let scon = await message.re.db.config
     .findOne({ server: message.guild.id })
     .exec();
+  if (
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid) &&
+    message.client.guilds.cache
+      .get(message.re.config.server)
+      .members.cache.get(userid)
+      .roles.cache.has(message.re.config.premiumrole)
+  )
+    perms.level = 1;
   if (message.guild) {
     if (permmem.hasPermission("MANAGE_GUILD"))
       perms.level = 2;
