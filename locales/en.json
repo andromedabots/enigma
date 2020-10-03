@@ -1,30 +1,22 @@
 {
-    "Bottom of messages from globalchat": {
-        "globalChatFooter": "Sent from {{channel} in {{guild}}"
-    },
-    "Do not translate OAEEO": {
-        "bp4": "OAEEO Member"
-    },
-    "Listed at the bottom of a lot of embeds": {
-        "paginatorFooter": "Page {{i}}/{{max}} | Information accurate as of"
-    },
-    "Used in *balance to check a user's balance": {
-        "currentBalance": "You currently have {{balance}} EC."
-    },
     "bp0": "Player",
     "bp1": "Enigma Premium",
     "bp2": "Server Admin",
     "bp3": "Enigma Staff",
+    "bp4": "OAEEO Member",
     "bp5": "Enigma Team",
     "bp6": "Bot Owner",
     "chooseLocation": "You must choose a location to {{action}} to!",
+    "currentBalance": "You currently have {{balance}} EC.",
     "currentlyTraveling": "You are currently traveling and unable to use any commands!",
+    "globalChatFooter": "Sent from {{channel} in {{guild}}",
     "invalidLocation": "Invalid location",
     "jumpComplete": "Jump complete!",
     "jumpInProgress": "Jump in progress...",
     "jumpRoute": "Jumping from {{origin}} to {{destination}}",
     "noStructures": "No structures found.",
     "notEnoughEC": "You don't have enough EC to {{action}}!",
+    "paginatorFooter": "Page {{i}}/{{max}} | Information accurate as of",
     "playersIn": "Players in {{location}}",
     "unknownUser": "Unknown user",
     "warpComplete": "Warp complete!",
