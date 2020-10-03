@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-  ship: { type: String },
+  name: { type: String },
+  id: { type: String },
   damage: { type: Number },
   attack_speed: { type: Number },
   health: { type: Number },
