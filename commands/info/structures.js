@@ -3,7 +3,6 @@ module.exports.run = async (client, message, args) => {
     let allloc = await re.db.emap.find().exec()
     let l = message.author.euser.location
     let xll = await re.db.emap.findOne({system: l}).exec()
-    if(!xll) return message.channel.send(`An error has occured. You appear to be in an invalid location.\n\`\`\`diff\n- ${message.author.euser.location}\n\`\`\``)
     let xl = xll.structures
     console.log(xl)
     let embeds = [new re.Discord.MessageEmbed().setDescription("** **\n")]

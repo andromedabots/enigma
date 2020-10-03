@@ -22,6 +22,8 @@ const locations = db.emap
 
 const prefix = config.prefix
 
+const locales = require("../global/i18n.js")
+
 vars.botperms = {
   0: "Player",
   1: "Enigma Premium",
@@ -110,7 +112,8 @@ exports.data = {
   l: locations,
   client,
   Discord,
-  config: config,
+  locales,
+  config,
   moment: require("moment")
 }
 
