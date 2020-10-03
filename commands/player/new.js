@@ -35,9 +35,9 @@ module.exports.run = async (client, message, args) => {
 	message.channel.send(
 		new re.Discord.MessageEmbed()
 			.setTitle("Welcome to the Enigma!")
-			.setDescription("Fun message here!")
+			.setDescription("Paradox is gonna write a cool intro for here even though I haven't told him yet!\n")
 			.setColor(re.config.color)
-			.setFooter(`You are now in ${euser.location} as of`)
+			.setFooter(`You are now in ${re.func.capitalizeFirstLetter(euser.location)} as of`)
 			.setTimestamp()
 	)
 }

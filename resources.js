@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`)
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "USER"] })
 const merge = require('deepmerge')
-const db = require("../global/db.js")
+const gdb = require("../global/db.js")
 
 let localconfig = require("./config.json")
 const globalconfig = require("../global/config.json")
@@ -13,6 +13,8 @@ let localvars = {
 const globalvars = require("../global/vars.js")
 const vars = merge(localvars, globalvars)
 
+let localdb = require('./re/db.js')
+const db = merge(localdb, gdb)
 
 const fn = require("../global/fn.js")
 // const locations = require("./locations.js")
@@ -108,7 +110,7 @@ exports.data = {
   l: locations,
   client,
   Discord,
-  config: vars.config,
+  config: config,
   moment: require("moment")
 }
 

@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
     if(!args2) args2 === message.author.euser.location
 
     let files = await re.vars.fs.readdirSync("/home/andromeda/enigma/maps");
-    let file = args[0] + ".jpg"
+    let file = args2 + ".jpg"
     let names = [], prettynames = []
     files.forEach(x => {
       names.push(x.replace(".jpg", ""))

@@ -3,6 +3,7 @@ module.exports.run = async (client, message, args) => {
     let allloc = await re.db.emap.find().exec()
     let l = message.author.euser.location
     let xll = await re.db.emap.findOne({system: l}).exec()
+    if(!xll) return message.channel.send(`An error has occured. You appear to be in an invalid location.\n\`\`\`diff\n- ${message.author.euser.location}\n\`\`\``)
     let xl = xll.structures
     console.log(xl)
     let embeds = [new re.Discord.MessageEmbed().setDescription("** **\n")]
@@ -11,7 +12,9 @@ module.exports.run = async (client, message, args) => {
       if (i % 10 == 0 && !i == 0) embeds.push(new re.Discord.MessageEmbed().setDescription("** **\n"))
       let structure = await re.db.estructure.findOne({id: x}).exec()
       //embeds[embeds.length - 1].description += `<@${x}> - ${re.client.users.cache.get(x) ? re.client.users.cache.get(x).username : "Unknown User"}\n`
-      embeds[embeds.length - 1].description += `**${structure.name} | ${re.func.capitalizeFirstLetter(structure.type)}**\n`
+      let ft1 = structure.type.split("_"), ft2 = []
+      ft1.forEach(x => ft2.push(re.func.capitalizeFirstLetter(x)))
+      embeds[embeds.length - 1].description += `**${structure.name} | ${ft2.join(" ")}**\n`
     }
 
     for (var [i, embed] of embeds.entries()) {

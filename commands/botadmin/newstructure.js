@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
 	if (!input) return await message.channel.send("Prompt timed out.")
 	input = input.first().content
 	let scheck = await re.db.emap.findOne({ system: input }).exec()
-	re.fn.jsm(message, scheck)
+	//re.fn.jsm(message, scheck)
 
 	if (!scheck)
 		return await message.channel.send("System not found! Please try again")
@@ -82,7 +82,7 @@ module.exports.run = async (client, message, args) => {
 			"hostile_wreck",
 		].includes(input)
 	)
-		return message.channel.send("That is an invalid type, please try again!")
+		return message.channel.send("That is an invalid type, please use the command again!")
 
 	structure.type = input
 
@@ -93,6 +93,7 @@ module.exports.run = async (client, message, args) => {
 	await re.db.estructure(structure).save()
 
 	message.channel.send("Success!")
+	message.channel.send(structure)
 }
 
 module.exports.help = {

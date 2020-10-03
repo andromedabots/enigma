@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
         }
     })
 
-    await re.db.eusers.findOneAndUpdate({user: message.author.id}, {location: args[0], travel: false}).exec()
+    await re.db.eusers.findOneAndUpdate({user: message.author.id}, {location: args[0].toLowerCase(), travel: false}).exec()
     
 
 };
