@@ -1,37 +1,37 @@
 {
-    "Used in *balance to check a user's balance": {
-        "currentBalance": "You currently have {{balance}} EC."
-    },
-    "notEnoughEC": "You don't have enough EC to {{action}}!",
-    "chooseLocation": "You must choose a location to {{action}} to!",
-    "invalidLocation": "Invalid location",
-    "jumpInProgress": "Jump in progress...",
-    "jumpComplete": "Jump complete!",
-    "jumpRoute": "Jumping from {{origin}} to {{destination}}",
-    "welcomeTitle": "Welcome to the Enigma!",
-    "welcomeMessage": "Paradox is gonna write a cool intro for here even though I haven't told him yet!",
-    "youAreIn": "You are in {{location}}",
-    "warpComplete": "Warp complete!",
-    "warpInProgress": "Warp in progress...",
-    "warpRoute": "Warping from {{origin}} to {{destination}}",
-    "warpInvalid": "You can't warp there from your current location!",
-    "noStructures": "No structures found.",
-    "Listed at the bottom of a lot of embeds": {
-        "paginatorFooter": "Page {{i}}/{{max}} | Information accurate as of"
-    },
-    "playersIn": "Players in {{location}}",
-    "unknownUser": "Unknown user",
-    "currentlyTraveling": "You are currently traveling and unable to use any commands!",
     "Bottom of messages from globalchat": {
         "globalChatFooter": "Sent from {{channel} in {{guild}}"
     },
-    "bp1": "Enigma Premium",
-    "bp2": "Server Admin",
-    "bp0": "Player",
-    "bp3": "Enigma Staff",
     "Do not translate OAEEO": {
         "bp4": "OAEEO Member"
     },
+    "Listed at the bottom of a lot of embeds": {
+        "paginatorFooter": "Page {{i}}/{{max}} | Information accurate as of"
+    },
+    "Used in *balance to check a user's balance": {
+        "currentBalance": "You currently have {{balance}} EC."
+    },
+    "bp0": "Player",
+    "bp1": "Enigma Premium",
+    "bp2": "Server Admin",
+    "bp3": "Enigma Staff",
     "bp5": "Enigma Team",
-    "bp6": "Bot Owner"
+    "bp6": "Bot Owner",
+    "chooseLocation": "You must choose a location to {{action}} to!",
+    "currentlyTraveling": "You are currently traveling and unable to use any commands!",
+    "invalidLocation": "Invalid location",
+    "jumpComplete": "Jump complete!",
+    "jumpInProgress": "Jump in progress...",
+    "jumpRoute": "Jumping from {{origin}} to {{destination}}",
+    "noStructures": "No structures found.",
+    "notEnoughEC": "You don't have enough EC to {{action}}!",
+    "playersIn": "Players in {{location}}",
+    "unknownUser": "Unknown user",
+    "warpComplete": "Warp complete!",
+    "warpInProgress": "Warp in progress...",
+    "warpInvalid": "You can't warp there from your current location!",
+    "warpRoute": "Warping from {{origin}} to {{destination}}",
+    "welcomeMessage": "Paradox is gonna write a cool intro for here even though I haven't told him yet!",
+    "welcomeTitle": "Welcome to the Enigma!",
+    "youAreIn": "You are in {{location}}"
 }
