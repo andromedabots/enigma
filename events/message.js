@@ -28,7 +28,7 @@ re.client.on("message", async message => {
 
     let noe = false, prefix = scon.prefix[re.client.user.id], command = message.content.slice(prefix.length).trim().split(/ /).shift().toLowerCase();
     let euser = await re.db.eusers.findOne({ user: message.author.id }).exec()
-    message.locale = euser.locale || "en"
+    // message.locale = euser.locale || "en"
 
     if(!euser && message.content.startsWith(prefix)) noe = true
     if(noe && message.content.startsWith(prefix) && !["ping", "help", "new", "eval", "restart"].includes(command)) return message.channel.send("You haven't yet joined the Enigma!")
