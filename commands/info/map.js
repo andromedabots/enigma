@@ -1,7 +1,11 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
     let args2 = args.join(" ").toLowerCase()
-    if(!args2) args2 === message.author.euser.location
+    if(!args2){
+     args2 = await re.db.emap.findOne({system: message.author.euser.location}).exec()
+      args2 = args2.map
+    }
+    
 
     let files = await re.vars.fs.readdirSync("/home/andromeda/enigma/maps");
     let file = args2 + ".jpg"
@@ -14,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
     message.channel.send('', {
       embed: {
-        title: re.fn.capitalizeFirstLetter(args[0]) + " Map",
+        title: re.fn.capitalizeFirstLetter(args2) + " Map",
         color: re.config.color,
         image: {
              url: 'attachment://' + file

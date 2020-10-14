@@ -29,6 +29,9 @@ module.exports.run = async (client, message, args) => {
 	euser = {
 		user: message.author.id,
 		location: voul[loc],
+		inventory: {
+			ships: [{id: "federalvoyager", custom: false}]
+		}
 	}
 	await re.db.eusers(euser).save()
 
