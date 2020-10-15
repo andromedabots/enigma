@@ -4,7 +4,7 @@ const { jsm } = require("../../global/fn.js");
 const { Discord } = require("../../global/vars.js");
 re.client.on("message", async message => {
     message.re = re
-    if(message.author.bot) return
+    if(message.author && message.author.bot) return
 
     let scon = await re.db.config.findOne({ server: message.guild.id }).exec()
     if(!scon){

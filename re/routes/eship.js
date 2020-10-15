@@ -8,7 +8,8 @@ const schema = new mongoose.Schema({
   health: { type: Number },
   shield: { type: Number },
   slots: { type: Number },
-  speed: { type: Number }
+  speed: { type: Number },
+  hidden: { type: Boolean, default: false}
 });
 
 module.exports = mongoose.model(`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`, schema);
