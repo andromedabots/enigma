@@ -23,7 +23,7 @@
     "warpInProgress": "Warp in progress...",
     "warpInvalid": "You can't warp there from your current location!",
     "warpRoute": "Warping from {{origin}} to {{destination}}",
-    "welcomeMessage": "Paradox is gonna write a cool intro for here even though I haven't told him yet!",
+    "welcomeMessage": "The anomaly economy grows. It's a dark world out there. Conflict everywhere - they call it the final years of sanity. Enigmatic activity is the new normal. It's up to you what you do in this strange universe: the fate of existence is truly uncertain. For an detailed beginners guide, visit this link: {{guideLink}}\nYou will start at a random station in Voulat or Avaritia, in a Federal Corvette.\nGood luck - and be wary - you never know what dark things could be waiting to be discovered...",
     "welcomeTitle": "Welcome to the Enigma!",
     "youAreIn": "You are in {{location}}"
 }
