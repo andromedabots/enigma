@@ -16,14 +16,14 @@
     "jumpRoute": "Saltando de {{origin}} a {{destination}}",
     "noStructures": "No se encontraron estructuras.",
     "notEnoughEC": "¡No tienes suficiente EC para {{action}}!",
-    "paginatorFooter": "Página {{i}} / {{max}} | Información precisa al",
-    "playersIn": "Jugadores en {{ubicación}}",
+    "paginatorFooter": "Página {{i}}/{{max}} | Información precisa al",
+    "playersIn": "Jugadores en {{location}}",
     "unknownUser": "Usuario desconocido",
     "warpComplete": "Warp completo!",
     "warpInProgress": "Warp en progreso ...",
     "warpInvalid": "¡No puedes deformarte desde tu ubicación actual!",
-    "warpRoute": "Deformación de {{origen}} a {{destino}}",
+    "warpRoute": "Deformación de {{origin}} a {{destination}}",
     "welcomeMessage": "¡Paradox va a escribir una introducción genial aquí, aunque todavía no se lo he dicho!",
     "welcomeTitle": "¡Bienvenido al Enigma!",
-    "youAreIn": "Estás en {{ubicación}}"
+    "youAreIn": "Estás en {{location}}"
 }
