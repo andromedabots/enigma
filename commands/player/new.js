@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
 	message.channel.send(
 		new re.Discord.MessageEmbed()
 			.setTitle("Welcome to the Enigma!")
-			.setDescription("Paradox is gonna write a cool intro for here even though I haven't told him yet!\n")
+			.setDescription(`The anomaly economy grows. It's a dark world out there. Conflict everywhere - they call it the final years of sanity. Enigmatic activity is the new normal. It's up to you what you do in this strange universe: the fate of existence is truly uncertain. For an detailed beginners guide, visit this link: <coming soon>\nYou will start at a random station in Voulat or Avaritia, in a Federal Corvette.\nGood luck - and be wary - you never know what dark things could be waiting to be discovered...`)
 			.setColor(re.config.color)
 			.setFooter(`You are now in ${re.func.capitalizeFirstLetter(euser.location)} as of`)
 			.setTimestamp()
