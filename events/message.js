@@ -4,7 +4,7 @@ const { jsm } = require("../../global/fn.js");
 const { Discord } = require("../../global/vars.js");
 re.client.on("message", async message => {
     message.re = re
-    if(message.author && message.author.bot) return
+    if(!message.author || message.author.bot) return
 
     let scon = await re.db.config.findOne({ server: message.guild.id }).exec()
     if(!scon){
@@ -32,7 +32,7 @@ re.client.on("message", async message => {
 
     if(!euser && message.content.startsWith(prefix)) noe = true
     if(noe && message.content.startsWith(prefix) && !["ping", "help", "new", "eval", "restart"].includes(command)) return message.channel.send("You haven't yet joined the Enigma!")
-    if(noe && !["ping", "help", "new", "eval"].includes(command)) return
+    if(noe && !["ping", "help", "new", "eval", "join", "initalize"].includes(command)) return
 
     message.author.euser = euser
 

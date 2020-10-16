@@ -2,6 +2,7 @@ module.exports.run = async (client, message, args) => {
     const re = message.re
     let jw = message.content.split(` `)[0].replace(message.prefix, ``)
     args = [args.join(` `)]
+    if(args[0] === "on a trampoline") return message.channel.send("https://media.giphy.com/media/4OgjmBLgdFTP2/giphy.gif")
     if(message.author.euser.balance < (jw == "jump" ? 2000 : 10000)) return message.channel.send(`You don't have enough EC to be able to ${jw} anywhere!`)
 
     if(!args[0]) return message.channel.send(`You must choose a location to ${jw} to!`)

@@ -11,6 +11,9 @@ const schema = new mongoose.Schema({
   inventory: {
     ships: [{
       id: {type: String},
+      health: { type: Number },
+      shield: { type: Number },
+      slots: { type: Number },
       custom: {type: Boolean, default: false}
     }]
   }

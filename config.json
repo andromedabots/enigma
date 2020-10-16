@@ -1,7 +1,7 @@
 {
   "prefix" : "*",
   "color": "#6F03C7",
-  "modules": ["info", "player"],
+  "modules": ["info", "player", "structures"],
   "errors": "761860669741203507",
   "devrole": "747259795098304543",
   "server": "747258759205748775",
