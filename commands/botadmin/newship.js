@@ -28,34 +28,6 @@ module.exports.run = async (client, message, args) => {
 
 	ship.id = ship.name.toLowerCase().replace(/[^a-z0-9\_\-]/g, "")
 
-	await message.channel.send("What is the total damage output of this ship?")
-	input = await m.channel
-		.awaitMessages((msg) => msg.author.id == message.author.id, {
-			time: 30 * 1000,
-			max: 1,
-			errors: ["time"],
-		})
-		.catch(() => {})
-	if (!input) return await message.channel.send("Prompt timed out.")
-	input = parseInt(input.first().content)
-	if (!input && input != 0)
-		return message.channel.send(input + " is an invalid number!")
-	ship.damage = parseInt(input)
-
-	await message.channel.send("What is the attack speed of this ship?")
-	input = await m.channel
-		.awaitMessages((msg) => msg.author.id == message.author.id, {
-			time: 30 * 1000,
-			max: 1,
-			errors: ["time"],
-		})
-		.catch(() => {})
-	if (!input) return await message.channel.send("Prompt timed out.")
-	input = parseInt(input.first().content)
-	if (!input && input != 0)
-		return message.channel.send(input + " is an invalid number!")
-	ship.attack_speed = parseInt(input)
-
 	await message.channel.send("What is the base health of this ship?")
 	input = await m.channel
 		.awaitMessages((msg) => msg.author.id == message.author.id, {
@@ -69,20 +41,6 @@ module.exports.run = async (client, message, args) => {
 	if (!input && input != 0)
 		return message.channel.send(input + " is an invalid number!")
 	ship.health = parseInt(input)
-
-	await message.channel.send("What is the base shield of this ship?")
-	input = await m.channel
-		.awaitMessages((msg) => msg.author.id == message.author.id, {
-			time: 30 * 1000,
-			max: 1,
-			errors: ["time"],
-		})
-		.catch(() => {})
-	if (!input) return await message.channel.send("Prompt timed out.")
-	input = parseInt(input.first().content)
-	if (!input && input != 0)
-		return message.channel.send(input + " is an invalid number!")
-	ship.shield = parseInt(input)
 
 	await message.channel.send("What is the speed of this ship?")
 	input = await m.channel
