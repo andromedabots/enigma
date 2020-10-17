@@ -12,12 +12,12 @@ const schema = new mongoose.Schema({
     ships: [{
       id: {type: String},
       health: { type: Number },
-      shield: { type: Number },
-      slots: { type: Number },
+      slots: { type: Array, default: []},
       custom: {type: Boolean, default: false}
     }],
     items: [{
       id: {type: String},
+      used: {type: Boolean, default: false},
       custom: {type: Boolean, default: false}
     }]
   }
