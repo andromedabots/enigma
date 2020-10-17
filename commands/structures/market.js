@@ -12,16 +12,16 @@ module.exports.run = async (client, message, args) => {
       if(args[0] == "sort"){
         if(args[1] == "lowest"){
           market = await re.db.emarket.find().sort({price : "ascending"}).exec()
-          sort = "Sorted by price in ascending order"
+          sort = "Sorted by price lowest to highest"
         } else if(args[1] == "highest"){
           market = await re.db.emarket.find().sort({price : "descending"}).exec()
-          sort = "Sorted by price in descending order"
+          sort = "Sorted by price highest to lowest"
         } else if(args[1] == "oldest"){
           market = await re.db.emarket.find().sort({createdAt : "ascending"}).exec()
-          sort = "Sorted by time listed in ascending order"
+          sort = "Sorted by time listed oldest to newest"
         } else if(args[1] == "newest"){
           market = await re.db.emarket.find().sort({createdAt : "descending"}).exec()
-          sort = "Sorted by time listed in descending order"
+          sort = "Sorted by time listed newest to oldest"
         } else {
           return message.channel.send("Invalid sort type")
         }
