@@ -85,11 +85,6 @@ module.exports.run = async (client, message, args) => {
 		return message.channel.send("That is an invalid type, please use the command again!")
 
 	structure.type = input
-
-	scheck = await re.db.emap.findOne({ system: structure.system }).exec()
-	if (!scheck) return await message.channel.send("No scheck")
-	scheck.structures.push(structure.id)
-	scheck.save()
 	await re.db.estructure(structure).save()
 
 	message.channel.send("Success!")
