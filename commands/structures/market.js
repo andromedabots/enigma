@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
-    let s = [], l = message.author.euser.location, p = [], embeds = [new re.Discord.MessageEmbed().setDescription("")]
+    let s = [], l = message.author.euser.location, p = [], embeds = [new re.Discord.MessageEmbed().setDescription("")], sort = ""
     let loc = await re.db.estructure.find({system: message.author.euser.location}).exec()
     loc.forEach(x => s.push(x.type))
     if(!s.includes("station")) return message.channel.send("You must be in a system with a Station to do this!")
@@ -12,12 +12,16 @@ module.exports.run = async (client, message, args) => {
       if(args[0] == "sort"){
         if(args[1] == "lowest"){
           market = await re.db.emarket.find().sort({price : "ascending"}).exec()
+          sort = "Sorted by price in ascending order"
         } else if(args[1] == "highest"){
           market = await re.db.emarket.find().sort({price : "descending"}).exec()
+          sort = "Sorted by price in descending order"
         } else if(args[1] == "oldest"){
           market = await re.db.emarket.find().sort({createdAt : "ascending"}).exec()
+          sort = "Sorted by time listed in ascending order"
         } else if(args[1] == "newest"){
           market = await re.db.emarket.find().sort({createdAt : "descending"}).exec()
+          sort = "Sorted by time listed in descending order"
         } else {
           return message.channel.send("Invalid sort type")
         }
@@ -33,7 +37,7 @@ module.exports.run = async (client, message, args) => {
         .setColor(re.config.color)
         .setFooter(`Page ${i + 1}/${embeds.length} | Information accurate as of`)
         .setTimestamp()
-        .setDescription(`Use \`${message.prefix}market sort <type>\` to sort the market. Type can be one of highest, lowest, oldest, newest`)
+        .setDescription(sort ? sort : `Use \`${message.prefix}market sort <type>\` to sort the market. Type can be one of highest, lowest, oldest, newest`)
     }
 
     let m = await message.channel.send(embeds[0])
