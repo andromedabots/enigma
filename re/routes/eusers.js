@@ -15,6 +15,10 @@ const schema = new mongoose.Schema({
       shield: { type: Number },
       slots: { type: Number },
       custom: {type: Boolean, default: false}
+    }],
+    items: [{
+      id: {type: String},
+      custom: {type: Boolean, default: false}
     }]
   }
 });
