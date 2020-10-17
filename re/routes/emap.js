@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
   system: { type: String },
   map: { type: String },
-  structures: { type: Array },
   warpTo: { type: Array },
   travelTo: { type: Array }
 });
