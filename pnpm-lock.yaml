@@ -6,8 +6,8 @@ dependencies:
   moment: 2.27.0
   mongoose: 5.10.7_mongoose@5.10.7
   ms: 2.1.2
+  nanoid: 3.1.13
   node-cmd: 3.0.0
-  shortid: 2.2.15
   sqlite3: 4.2.0
   unb-api: 1.2.0
 lockfileVersion: 5.1
@@ -574,10 +574,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
-  /nanoid/2.1.11:
+  /nanoid/3.1.13:
     dev: false
+    engines:
+      node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1
+    hasBin: true
     resolution:
-      integrity: sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==
+      integrity: sha512-oYL7jWZUdScASxYOrcwE8EvISFGzO3/1g+t56vCyR0s2nrpmBcOc7hTAFJaVf6HMyEPJrnNelnjRnMN6KZnCPA==
   /needle/2.5.0:
     dependencies:
       debug: 3.2.6
@@ -851,12 +854,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
-  /shortid/2.2.15:
-    dependencies:
-      nanoid: 2.1.11
-    dev: false
-    resolution:
-      integrity: sha512-5EaCy2mx2Jgc/Fdn9uuDuNIIfWBpzY4XIlhoqtXF6qsf+/+SGZ+FxDdX/ZsMZiWupIWNqAEmiNY4RC+LSmCeOw==
   /sift/7.0.1:
     dev: false
     resolution:
@@ -1035,7 +1032,7 @@ specifiers:
   moment: ^2.27.0
   mongoose: ^5.10.7
   ms: ^2.1.2
+  nanoid: ^3.1.13
   node-cmd: ^3.0.0
-  shortid: ^2.2.15
   sqlite3: ^4.2.0
   unb-api: ^1.1.1

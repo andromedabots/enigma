@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
   let s = [],
     l = message.author.euser.location,
     p = [],
-    embeds = [new re.Discord.MessageEmbed().setDescription("")],
+    embeds = [],
     sort = ""
   let loc = await re.db.estructure
     .find({ system: message.author.euser.location })
@@ -53,9 +53,11 @@ module.exports.run = async (client, message, args) => {
         }\nPrice: ${x.price} EC\nListed at: ${`${x.createdAt}`.replace(
           "GMT+0000 (Coordinated Universal Time)",
           "UTC"
-        )}`,
+        )}\nID: \`${x.id}\``,
       })
     }
+    
+    if(!embeds[0]) embeds.push(new re.Discord.MessageEmbed().addField("** **", "No items are currently listed in the Enigma Market!\n\n** **"))
 
     for (var [i, embed] of embeds.entries()) {
       embed
@@ -78,40 +80,43 @@ module.exports.run = async (client, message, args) => {
     let itemname = args[1],
       price = parseInt(args[2], 10)
     if (!itemname) message.channel.send("Please specify an item!")
-    let item = await re.db.eitems.findOne({ name: itemname }).exec()
-    if (!item) message.channel.send("Unable to find that item!")
-    if (!price) message.channel.send(`${args[2]} is not a valid price!`)
-    let prompt = await message.channel.send(
-      `Are you sure you want to list one ${item.name} for ${price} EC?`
+    let item = await re.db.eitem.findOne({ id: itemname }).exec()
+    if (!item) return message.channel.send("Unable to find that item!")
+    if (!price) return message.channel.send(`${args[2]} is not a valid price!`)
+    let m = await message.channel.send(
+      `Listing one ${item.name} for ${price} EC...`
     )
-    await prompt.react("👍")
-    await prompt.react("👎")
-    let reactions = await prompt
-      .awaitReactions(
-        (r, u) =>
-          (r.emoji == "👍" || r.emoji == "👎") && u.id == message.author.id,
-        { time: 30 * 1000, max: 1, errors: ["time"] }
-      )
-      .catch(() => {})
-    if (!reactions) {
-      m.reactions.clearAll()
-      return await m.edit("Prompt timed out")
-    }
+    await re.fn.sleep(3000)
+    // await prompt.react("👍")
+    // await prompt.react("👎")
+    // let reactions = await prompt
+    //   .awaitReactions(
+    //     (r, u) =>
+    //       (r.emoji == "👍" || r.emoji == "👎") && u.id == message.author.id,
+    //     { time: 30 * 1000, max: 1, errors: ["time"] }
+    //   )
+    //   .catch(() => {})
+    // if (!reactions || reactions.first().emoji ) {
+    //   m.reactions.clearAll()
+    //   return await m.edit("Prompt timed out")
+    // }
 
-    await re.db.emarket({
+    let listitem = {
       seller: message.author.id, 
       price: price, 
-      item: item.id
-    }).save()
-    m.reactions.clearAll()
-    m.edit(`Success! You have listed one ${item.name} for ${price} EC!`)
+      item: item.id,
+      id: re.vars.nanoid(8)
+    }
+    await re.db.emarket(listitem).save()
+    // m.reactions.clearAll()
+    m.edit(`Success! You have listed one ${item.name} for ${price} EC! ID: \`${listitem.id}\``)
   } else {
   }
 }
 
 module.exports.help = {
   name: `${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
-  description: `Repair your ship in the Enigma`,
+  description: `See the Enigma Market`,
   syntax: `${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
   alias: [],
   module: `${__dirname.split(`/`).pop()}`,

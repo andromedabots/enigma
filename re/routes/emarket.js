@@ -4,6 +4,7 @@ const schema = new mongoose.Schema({
   seller: { type: String, required: true },
   price: { type: Number, required: true },
   item: { type: String, required: true },
+  id: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }
 });
 
