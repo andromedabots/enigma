@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
     if(!data) return message.channel.send(`${user.user.tag} is not in the Enigma database yet!`)
     let embed = new re.Discord.MessageEmbed()
     .setTitle("Player Data for " + user.user.tag)
-    .setDescription(`ID: ${user.user.id}\nCreated at ${user.user.createdAt.replace("GMT+0000 (Coordinated Universal Time)", "UTC")}`)
+    .setDescription(`ID: ${user.user.id}\nCreated at ${user.user.createdTimestamp}`)
     .addField("Location", data.location, true)
     .addField("Currently Traveling?", data.travel, true)
     .addField("Balance", `${data.balance} EC`, true)
