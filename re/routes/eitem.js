@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
     codeFile: {type: String}, // custom code file for an item
     log: {type: String} // console.log the value for test items
   },
+  slots: {type: Number, default: 1},
   createdAt: { type: Date, default: Date.now }
 });
 
