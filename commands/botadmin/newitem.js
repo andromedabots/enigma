@@ -4,6 +4,8 @@ module.exports.run = async (client, message, args) => {
     name: "",
     id: "",
     type: "",
+    action: {},
+    slots: 1,
   }
 
   let m = await message.channel.send(
@@ -57,6 +59,18 @@ module.exports.run = async (client, message, args) => {
     input = parseInt(input.first().content, 10)
     item.action.addShield = input
   }
+
+  await message.channel.send("How many slots does this item use?")
+  input = await m.channel
+    .awaitMessages((msg) => msg.author.id == message.author.id, {
+      time: 30 * 1000,
+      max: 1,
+      errors: ["time"],
+    })
+    .catch(() => {})
+  if (!input) return await message.channel.send("Prompt timed out.")
+  input = parseInt(input.first().content, 10)
+  item.slots = input
 
   await re.db.eitem(item).save()
 
