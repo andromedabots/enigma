@@ -1,8 +1,11 @@
 {
   "prefix" : "*",
   "color": "#6F03C7",
-  "modules": ["info", "player", "structures"],
+  "modules": ["info", "player", "structures", "structures", "support"],
   "errors": "761860669741203507",
+  "premiumrole": "761327399563558952",
+  "betarole": "769975704162926612",
+  "staffrole": "757354346215375017",
   "devrole": "747259795098304543",
   "server": "747258759205748775",
   "barole": "757354159035908177"
