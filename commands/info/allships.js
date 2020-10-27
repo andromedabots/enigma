@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
 
     for (var [i, x] of query.entries()) {
       if (i % 10 == 0) embeds.push(new re.Discord.MessageEmbed().setDescription(""))
-      embeds[embeds.length - 1].fields.push({name: `${x.name} - \`${x.id}\``, value: `Damage: ${x.damage}\nAttack Speed: ${x.attack_speed}\nHealth: ${x.health}\nShield: ${x.shield}\nSlots: ${x.slots}\nSpeed: ${x.speed}`})
+      embeds[embeds.length - 1].fields.push({name: `${x.name} - \`${x.id}\``, value: `Health: ${x.health}\nSlots: ${x.slots}\nSpeed: ${x.speed} seconds`})
     }
 
     for (var [i, embed] of embeds.entries()) {
@@ -25,6 +25,6 @@ module.exports.run = async (client, message, args) => {
     syntax:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
     alias:[],
     module:`${__dirname.split(`/`).pop()}`,
-    access: {level: 0, mm: null}
+    access: {level: 0}
   }
   

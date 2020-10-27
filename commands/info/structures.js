@@ -32,6 +32,6 @@ module.exports.run = async (client, message, args) => {
     syntax:`${__filename.split(`${__dirname}/`).pop().split(`.`).shift()}`,
     alias:["nearby"],
     module:`${__dirname.split(`/`).pop()}`,
-    access: {level: 0, mm: null}
+    access: {level: 0}
   }
   
