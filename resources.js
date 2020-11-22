@@ -55,8 +55,6 @@ fn.botperms = async function (userid, message) {
     perms.level = 4
   if (enigmamem && enigmamem.roles.cache.has(message.re.config.devrole))
     perms.level = 5
-  if (enigmamem && enigmamem.roles.cache.has(message.re.config.devrole))
-    perms.level = 5
   if (enigmamem && enigmamem.roles.cache.has(message.re.config.leaderrole))
     perms.level = 6
   if (["380455396281810955", "661946737065197586", message.re.config.ownerID].includes(permmem.user.id))
