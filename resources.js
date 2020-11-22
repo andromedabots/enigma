@@ -28,7 +28,7 @@ vars.botperms = {
   3: "Enigma Staff",
   4: "OAEEO Member",
   5: "Enigma Team",
-  6: "Bot Owner",
+  6: "Enigma Leadership",
 }
 
 fn.botperms = async function (userid, message) {
@@ -55,11 +55,11 @@ fn.botperms = async function (userid, message) {
     perms.level = 4
   if (enigmamem && enigmamem.roles.cache.has(message.re.config.devrole))
     perms.level = 5
-  if (userid === message.re.config.ownerID) {
+  if (enigmamem && enigmamem.roles.cache.has(message.re.config.devrole))
+    perms.level = 5
+  if (enigmamem && enigmamem.roles.cache.has(message.re.config.leaderrole))
     perms.level = 6
-    perms.eval = true
-  }
-  if (["380455396281810955", "661946737065197586"].includes(permmem.user.id))
+  if (["380455396281810955", "661946737065197586", message.re.config.ownerID].includes(permmem.user.id))
     perms.eval = true
   if (permmem.user.bot)
     perms = {
