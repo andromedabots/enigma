@@ -1,3 +1,5 @@
+const { Discord } = require("../../../global/vars");
+
 module.exports.run = async (client, message, args) => {
     const re = message.re
     let jw = message.content.split(` `)[0].replace(message.prefix, ``)
@@ -19,27 +21,27 @@ module.exports.run = async (client, message, args) => {
     let mthingy = {
       embed: {
         title: `${re.func.capitalizeFirstLetter(jw)} in progress`,
-        description: `${re.func.capitalizeFirstLetter(jw)}ing from ${re.func.capitalizeFirstLetter(message.author.euser.location)} to ${re.func.capitalizeFirstLetter(args[0])}\nShip: ${ship.name}`, /*\nTime Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}*/
+        description: `${re.func.capitalizeFirstLetter(jw)}ing from ${re.func.capitalizeFirstLetter(message.author.euser.location)} to ${re.func.capitalizeFirstLetter(args[0])}\nShip: ${ship.name}\nTime Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}`,
         color: re.config.color,
         image: {
-             url: 'http://andromedabots.tk/warp.gif' //'attachment://warp.gif'
+             url: `attachment://warp.gif`
         },
-       }/*,
+       },
        files: [{
           attachment: '/home/andromeda/enigma/warp.gif',
           name: `warp.gif`
-       }]*/
+       }]
     }
     
-    let m = await message.channel.send(`Time Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}`, mthingy)
+    let m = await message.channel.send(mthingy)
 
 
     let jumptimer = setInterval(function () {
       if (Date.now() > endtime) {
         clearInterval(jumptimer)
       } else {
-        mthingy.description = `${re.func.capitalizeFirstLetter(jw)}ing from ${re.func.capitalizeFirstLetter(message.author.euser.location)} to ${re.func.capitalizeFirstLetter(args[0])}\nShip: ${ship.name}\nTime Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}`
-        m.edit(`Time Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}`, mthingy)
+        mthingy.embed.description = `${re.func.capitalizeFirstLetter(jw)}ing from ${re.func.capitalizeFirstLetter(message.author.euser.location)} to ${re.func.capitalizeFirstLetter(args[0])}\nShip: ${ship.name}\nTime Remaining: ${re.vars.ms(endtime - Date.now(), {long: true})}`
+        m.edit(mthingy)
         console.log(endtime - Date.now(), re.vars.ms(endtime - Date.now(), {long: true}))
       }
     }, 30000) 
