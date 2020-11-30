@@ -80,6 +80,7 @@ exports.data = {
     Discord,
     locales,
     config: newconfig,
+    cron: require("./cron.js"),
     moment: require("moment"),
 }
 
