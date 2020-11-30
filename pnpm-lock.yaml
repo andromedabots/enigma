@@ -4,13 +4,14 @@ dependencies:
   discord.js: 12.3.1
   dotenv: 8.2.0
   moment: 2.27.0
-  mongoose: 5.10.7_mongoose@5.10.7
+  mongoose: 5.10.7
   ms: 2.1.2
   nanoid: 3.1.13
   node-cmd: 3.0.0
+  node-cron: 2.0.3
   sqlite3: 4.2.0
   unb-api: 1.2.0
-lockfileVersion: 5.1
+lockfileVersion: 5.2
 packages:
   /@discordjs/collection/0.1.6:
     dev: false
@@ -518,13 +519,13 @@ packages:
       integrity: sha512-sSZOb04w3HcnrrXC82NEh/YGCmBuRgR+C1hZgmmv4L6dBz4BkRse6Y8/q/neXer9i95fKUBbFi4KgeceXmbsOA==
   /mongoose-legacy-pluralize/1.0.2_mongoose@5.10.7:
     dependencies:
-      mongoose: 5.10.7_mongoose@5.10.7
+      mongoose: 5.10.7
     dev: false
     peerDependencies:
       mongoose: '*'
     resolution:
       integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
-  /mongoose/5.10.7_mongoose@5.10.7:
+  /mongoose/5.10.7:
     dependencies:
       bson: 1.1.5
       kareem: 2.3.1
@@ -540,8 +541,6 @@ packages:
     dev: false
     engines:
       node: '>=4.0.0'
-    peerDependencies:
-      mongoose: '*'
     resolution:
       integrity: sha512-oiofFrD4I5p3PhJXn49QyrU1nX5CY01qhPkfMMrXYPhkfGLEJVwFVO+0PsCxD91A2kQP+d/iFyk5U8e86KI8eQ==
   /mpath/0.7.0:
@@ -596,6 +595,16 @@ packages:
     dev: false
     resolution:
       integrity: sha1-OP/3CkqqT2WdID61eGJzcBjiT28=
+  /node-cron/2.0.3:
+    dependencies:
+      opencollective-postinstall: 2.0.3
+      tz-offset: 0.0.1
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    requiresBuild: true
+    resolution:
+      integrity: sha512-eJI+QitXlwcgiZwNNSRbqsjeZMp5shyajMR81RZCqeW0ZDEj4zU9tpd4nTh/1JsBiKbF8d08FCewiipDmVIYjg==
   /node-fetch/2.6.0:
     dev: false
     engines:
@@ -675,6 +684,11 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
+  /opencollective-postinstall/2.0.3:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
   /os-homedir/1.0.2:
     dev: false
     engines:
@@ -965,6 +979,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
+  /tz-offset/0.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-kMBmblijHJXyOpKzgDhKx9INYU4u4E1RPMB0HqmKSgWG8vEcf3exEfLh4FFfzd3xdQOw9EuIy/cP0akY6rHopQ==
   /unb-api/1.2.0:
     dependencies:
       request: 2.88.2
@@ -1034,5 +1052,6 @@ specifiers:
   ms: ^2.1.2
   nanoid: ^3.1.13
   node-cmd: ^3.0.0
+  node-cron: ^2.0.3
   sqlite3: ^4.2.0
   unb-api: ^1.1.1
