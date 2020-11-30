@@ -1,13 +1,16 @@
 const re = require(`./resources.js`).data
 const CronJob = re.vars.cron.CronJob;
 const cronjob = new CronJob("0 0 * * *", () => {
-  let status = run()
-  re.client.channels.cache.get(re.config.cronlogs).send(status)
-  console.log(status)
+  cronlog(run())
 });
 cronjob.start()
 
 const list = ["asteroids"]
+
+const cronlog = (msg) => {
+  re.client.channels.cache.get(re.config.cronlogs).send(msg)
+  console.log(msg)
+}
 
 const asteroids = () => {
     let locs = re.config.asteroidloc
@@ -21,4 +24,4 @@ const run = (limit = list) => {
 
 module.exports = {run, list, cronjob}
 
-console.log("Cron initalized")
+cronlog("Cron initalized")
