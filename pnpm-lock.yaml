@@ -1,5 +1,6 @@
 dependencies:
   array-pull: 0.2.1
+  cron: 1.8.2
   deepmerge: 4.2.2
   discord.js: 12.3.1
   dotenv: 8.2.0
@@ -8,7 +9,6 @@ dependencies:
   ms: 2.1.2
   nanoid: 3.1.13
   node-cmd: 3.0.0
-  node-cron: 2.0.3
   sqlite3: 4.2.0
   unb-api: 1.2.0
 lockfileVersion: 5.2
@@ -178,6 +178,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+  /cron/1.8.2:
+    dependencies:
+      moment-timezone: 0.5.32
+    dev: false
+    resolution:
+      integrity: sha512-Gk2c4y6xKEO8FSAUTklqtfSr7oTq0CiPQeLBG5Fl0qoXpZyMcj1SG59YL+hqq04bu6/IuEA7lMkYDAplQNKkyg==
   /dashdash/1.14.1:
     dependencies:
       assert-plus: 1.0.0
@@ -499,10 +505,20 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+  /moment-timezone/0.5.32:
+    dependencies:
+      moment: 2.29.1
+    dev: false
+    resolution:
+      integrity: sha512-Z8QNyuQHQAmWucp8Knmgei8YNo28aLjJq6Ma+jy1ZSpSk5nyfRT8xgUbSQvD2+2UajISfenndwvFuH3NGS+nvA==
   /moment/2.27.0:
     dev: false
     resolution:
       integrity: sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
+  /moment/2.29.1:
+    dev: false
+    resolution:
+      integrity: sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
   /mongodb/3.6.2:
     dependencies:
       bl: 2.2.1
@@ -595,16 +611,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-OP/3CkqqT2WdID61eGJzcBjiT28=
-  /node-cron/2.0.3:
-    dependencies:
-      opencollective-postinstall: 2.0.3
-      tz-offset: 0.0.1
-    dev: false
-    engines:
-      node: '>=6.0.0'
-    requiresBuild: true
-    resolution:
-      integrity: sha512-eJI+QitXlwcgiZwNNSRbqsjeZMp5shyajMR81RZCqeW0ZDEj4zU9tpd4nTh/1JsBiKbF8d08FCewiipDmVIYjg==
   /node-fetch/2.6.0:
     dev: false
     engines:
@@ -684,11 +690,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
-  /opencollective-postinstall/2.0.3:
-    dev: false
-    hasBin: true
-    resolution:
-      integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
   /os-homedir/1.0.2:
     dev: false
     engines:
@@ -979,10 +980,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
-  /tz-offset/0.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-kMBmblijHJXyOpKzgDhKx9INYU4u4E1RPMB0HqmKSgWG8vEcf3exEfLh4FFfzd3xdQOw9EuIy/cP0akY6rHopQ==
   /unb-api/1.2.0:
     dependencies:
       request: 2.88.2
@@ -1044,6 +1041,7 @@ packages:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
   array-pull: ^0.2.1
+  cron: ^1.8.2
   deepmerge: ^4.2.2
   discord.js: ^12.2.0
   dotenv: ^8.2.0
@@ -1052,6 +1050,5 @@ specifiers:
   ms: ^2.1.2
   nanoid: ^3.1.13
   node-cmd: ^3.0.0
-  node-cron: ^2.0.3
   sqlite3: ^4.2.0
   unb-api: ^1.1.1
