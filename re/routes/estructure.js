@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     id: { type: String, required: true },
     system: { type: String, required: true },
     type: { type: String, required: true },
+    material: { type: String },
     createdAt: { type: Date, default: Date.now }
 });
 

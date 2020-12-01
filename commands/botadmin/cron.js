@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
     const re = message.re
-    let msg = re.cron.run(args ? args : undefined)
+    let msg = await re.cron.run(args ? args : re.cron.list)
     message.channel.send(msg)
     re.cron.cronlog(`${msg} - Manually triggered by ${message.author.tag}`)
 }

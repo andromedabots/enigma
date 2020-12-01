@@ -16,6 +16,8 @@
     "server": "747258759205748775",
     "barole": "757354159035908177",
     "leaderrole": "780214132673871905",
-    "asteroidloc": ["kinra","iantus","veilan","imia","tarvin","kenox","deia","remsea","valquin","sennar","sophux"],
+    "asteroidloc": {
+        "voulat": ["kinra","iantus","veilan","imia","tarvin","kenox","deia","remsea","valquin","sennar","sophux"]
+    },
     "materials": ["luriautite", "velorium", "koriame", "nexurite", "miuorium", "hallidite", "elaeum", "ziromium"]
 }

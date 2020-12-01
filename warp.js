@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, args) => {
+    const re = message.re
     return re.client.commands.get(command).run(client, message, args)
 
-    // const re = message.re
     //   args = [args.join(" ")]
     //   if(message.author.euser.balance < 2000) return message.channel.send("You don't have enough EC to be able to warp anywhere!")
 
