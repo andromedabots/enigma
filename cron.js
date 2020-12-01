@@ -7,24 +7,25 @@ cronjob.start()
 
 const list = ["asteroids", "test"]
 
-const cronlog = (msg) => {
+const cronlog = async (msg) => {
   re.client.channels.cache.get(re.config.cronlogs).send(msg)
   console.log(msg)
 }
 
-const asteroids = () => {
+const asteroids = async () => {
+
   let locs = re.config.asteroidloc
   //TODO: finish this
 }
 
-const testcron = () => {
+const testcron = async () => {
   console.log("Test cron 1")
 }
 
-const run = (limit = list) => {
+const run = async (limit = list) => {
   if (!limit) limit = list
-  if (limit.includes("asteroids")) asteroids()
-  if (limit.includes("test")) testcron()
+  if (limit.includes("asteroids")) await asteroids()
+  if (limit.includes("test")) await testcron()
   return `Cron ran successfully for: ${limit}`
 }
 
