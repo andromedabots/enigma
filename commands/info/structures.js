@@ -10,6 +10,8 @@ module.exports.run = async (client, message, args) => {
         //embeds[embeds.length - 1].description += `<@${x}> - ${re.client.users.cache.get(x) ? re.client.users.cache.get(x).username : "Unknown User"}\n`
         let ft1 = structure.type.split("_"), ft2 = []
         ft1.forEach(x => ft2.push(re.func.capitalizeFirstLetter(x)))
+
+        // when you move this command to the new UI, just leave this check like this (:
         if(structure.type == "asteroid"){
             embeds[embeds.length - 1].description += `**${structure.name} | ${ft2.join(" ")}**\n`
         } else {
