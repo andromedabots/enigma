@@ -12,7 +12,7 @@
     "deepmerge": "^4.2.2",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.10.7",
     "ms": "^2.1.2",
     "nanoid": "^3.1.13",
